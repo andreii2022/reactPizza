@@ -17,9 +17,7 @@ function App() {
 
   React.useEffect(() =>{
     fetch('https://6413417ea68505ea732e44de.mockapi.io/items')
-  .then((res) => {
-    return res.json();
-  })
+  .then((res) =>  res.json())
   .then((arr) => {
     setItems(arr);
   })
