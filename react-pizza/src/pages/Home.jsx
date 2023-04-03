@@ -2,8 +2,8 @@ import React from 'react';
 
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
-import PizzaBlock from '../components/PizzaBlock';
-import Skeleton from '../components/PizzaBlock/skeleton';
+import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
+import Skeleton from '../components/PizzaBlock/sceleton';
 
  const Home = () => {
 
