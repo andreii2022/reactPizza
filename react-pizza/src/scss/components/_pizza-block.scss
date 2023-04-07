@@ -5,6 +5,11 @@
   text-align: center;
   margin-bottom: 65px;
 
+  &_wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
  
 
   &__image {
@@ -16,6 +21,7 @@
     font-weight: 900;
     letter-spacing: 1%;
     margin-bottom: 20px;
+   
   }
 
   &__selector {
