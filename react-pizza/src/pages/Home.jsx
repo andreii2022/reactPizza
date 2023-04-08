@@ -17,6 +17,7 @@ import Skeleton from '../components/PizzaBlock/sceleton';
       setItems(arr);
       setIsLoading(false);
     })
+    window.scrollTo(0, 0);
     }, []);
     return (
       <div className="container">
