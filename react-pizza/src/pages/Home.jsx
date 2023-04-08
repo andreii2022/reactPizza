@@ -19,7 +19,7 @@ import Skeleton from '../components/PizzaBlock/sceleton';
     })
     }, []);
     return (
-        <>
+      <div className="container">
              <div className="content__top">
               <Categories/>
               <Sort/>
@@ -34,7 +34,7 @@ import Skeleton from '../components/PizzaBlock/sceleton';
                 : items.map((obj) => <PizzaBlock key={obj.id} {...obj}/>)}
 
           </div>
-        </>
+        </div>
     )
 }
 
