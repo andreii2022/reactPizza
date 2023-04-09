@@ -1,5 +1,6 @@
 import LogoSvg from '../assets/img/pizza-logo.svg';
 import { Link } from 'react-router-dom';
+import Searh from './Searh';
 
 function Header () {
     return(
@@ -15,6 +16,7 @@ function Header () {
      
       </div>
       </Link> 
+      <Searh/> 
         <div className="header__cart">
         <Link to="/cart" class="button button--cart">
           <span>520 ₽</span>
