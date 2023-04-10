@@ -1,9 +1,11 @@
 import React from 'react';
 
+
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/sceleton';
+import Pagination from '../components/Pagination/index'
 
  const Home = ({searchValue}) => {
     const [items, setItems] = React.useState([]);
@@ -41,17 +43,14 @@ import Skeleton from '../components/PizzaBlock/sceleton';
       <div className="container">
              <div className="content__top">
               <Categories value={categoryId} onChangeCategory={(i) => setCategoryId(i)} />
-              <Sort value={sortType} onChangeSort={(i) => setSortType(i)}/>
-            
-                  
+              <Sort value={sortType} onChangeSort={(i) => setSortType(i)}/>  
                 </div>
                 <h2 className="content__title">Все пиццы</h2>
-                <div className="content__items">
-                
-                {isLoading ? sceletons : pizzas }
-          </div>
+                <div className="content__items">{isLoading ? sceletons : pizzas }</div>
+                <Pagination/>
+               
         </div>
-    )
-}
+    );
+};
 
 export default Home;
