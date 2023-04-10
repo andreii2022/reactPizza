@@ -1,6 +1,6 @@
 import LogoSvg from '../assets/img/pizza-logo.svg';
 import { Link } from 'react-router-dom';
-import Searh from './Searh';
+import Searh from './Search';
 
 function Header ({searchValue, setSearchValue}) {
     return(
