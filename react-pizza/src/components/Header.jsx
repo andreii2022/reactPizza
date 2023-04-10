@@ -2,7 +2,7 @@ import LogoSvg from '../assets/img/pizza-logo.svg';
 import { Link } from 'react-router-dom';
 import Searh from './Searh';
 
-function Header () {
+function Header ({searchValue, setSearchValue}) {
     return(
     <div class="header">
     <div class="container">
@@ -16,7 +16,7 @@ function Header () {
      
       </div>
       </Link> 
-      <Searh/> 
+      <Searh searchValue={searchValue} setSearchValue={setSearchValue}/> 
         <div className="header__cart">
         <Link to="/cart" class="button button--cart">
           <span>520 ₽</span>
