@@ -11,6 +11,7 @@ import Pagination from '../components/Pagination/index'
     const [items, setItems] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
     const [categoryId, setCategoryId] = React.useState(0);
+    const [currentPage, setCurrentPage] = React.useState(1);
     const [sortType, setSortType] = React.useState({
       name: 'популярности',
       sortProperty: 'rating'
@@ -25,7 +26,7 @@ import Pagination from '../components/Pagination/index'
       const category = categoryId > 0 ? `category=${categoryId}` : '';
       const search = searchValue  ? `&search=${searchValue}` : '';
 
-      fetch(`https://6413417ea68505ea732e44de.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}${search}`,
+      fetch(`https://6413417ea68505ea732e44de.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`,
             )
     .then((res) =>  res.json())
     .then((arr) => {
@@ -33,7 +34,7 @@ import Pagination from '../components/Pagination/index'
       setIsLoading(false);
     })
     window.scrollTo(0, 0);
-    }, [categoryId, sortType,searchValue]);
+    }, [categoryId, sortType, searchValue, currentPage]);
 
     const pizzas = items.map((obj) => <PizzaBlock key={obj.id} {...obj}/>);
 
@@ -47,7 +48,7 @@ import Pagination from '../components/Pagination/index'
                 </div>
                 <h2 className="content__title">Все пиццы</h2>
                 <div className="content__items">{isLoading ? sceletons : pizzas }</div>
-                <Pagination/>
+                <Pagination onPageChange={(number) => setCurrentPage(number)} />
                
         </div>
     );
