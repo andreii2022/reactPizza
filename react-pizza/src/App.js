@@ -9,6 +9,10 @@ import NotFound from './pages/NotFound';
 
 import './scss/app.scss';
 
+export const SearchContext = React.createContext();
+
+
+
 
 
 function App() {
@@ -17,9 +21,10 @@ function App() {
   
   return (
          <div className="wrapper">
-          <Header searchValue={searchValue} setSearchValue={setSearchValue} />
+         
+         <SearchContext.Provider value={{searchValue, setSearchValue}}>
+          <Header/>
           <div className="content">
-            
            <Routes>
             <Route  path='/' element={<Home searchValue={searchValue} />}/>
             <Route  path='/cart' element={<Cart/>}/>
@@ -27,6 +32,7 @@ function App() {
            </Routes>
         
       </div>
+         </SearchContext.Provider>
     </div>
   );
 }
