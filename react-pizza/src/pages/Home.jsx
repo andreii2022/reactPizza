@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { useDispatch, setPageCount } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { setCategoryId, currentPage} from '../redux/slices/filterSlice';
+import { setCategoryId, setCurrentPage} from '../redux/slices/filterSlice';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
@@ -12,7 +12,7 @@ import {SearchContext} from '../App'
 
  const Home = () => {
     const dispatch = useDispatch();
-    const {categoryId, sort, pageCount} = useSelector((state) => state.filter);
+    const {categoryId, sort, currentPage} = useSelector((state) => state.filter);
     
 
     const {searchValue,} = React.useContext(SearchContext);
