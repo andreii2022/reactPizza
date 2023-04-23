@@ -1,8 +1,8 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { useDispatch, setPageCount } from 'react-redux';
 
-import { setCategoryId } from '../redux/slices/filterSlice';
+import { setCategoryId, currentPage} from '../redux/slices/filterSlice';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
@@ -12,21 +12,23 @@ import {SearchContext} from '../App'
 
  const Home = () => {
     const dispatch = useDispatch();
-    const {categoryId, sort} = useSelector((state) => state.filter);
-    
-
+    const {categoryId, sort, pageCount} = useSelector((state) => state.filter);
     
 
     const {searchValue,} = React.useContext(SearchContext);
     const [items, setItems] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
-    const [currentPage, setCurrentPage] = React.useState(1);
+    
   
 
     const onChangeCategory = (id) =>{
       console.log(id)
       dispatch(setCategoryId(id));
     };
+
+   const onChangePage = (page) => {
+    dispatch(setCurrentPage(page));
+   }
 
   
     React.useEffect(() =>{
@@ -60,7 +62,7 @@ import {SearchContext} from '../App'
                 </div>
                 <h2 className="content__title">Все пиццы</h2>
                 <div className="content__items">{isLoading ? sceletons : pizzas }</div>
-                <Pagination onPageChange={(number) => setCurrentPage(number)} />
+                <Pagination currentPage={currentPage} onPageChange={onChangePage} />
                
         </div>
     );
